@@ -1,17 +1,8 @@
-# Code of your exercise
-
-Put here all the code created for this exercise
-
-## Classe qui imprime pour chaque classe les attributs privés qui n'ont pas de getter
-```java
 package fr.istic.vv;
 
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.*;
 import com.github.javaparser.ast.visitor.VoidVisitorWithDefaults;
-
-import java.sql.SQLOutput;
 
 public class PrivateElementsGetterPrinter extends VoidVisitorWithDefaults<Void> {
 
@@ -46,42 +37,5 @@ public class PrivateElementsGetterPrinter extends VoidVisitorWithDefaults<Void> 
     public void visit(EnumDeclaration declaration, Void arg) {
         visitTypeDeclaration(declaration, arg);
     }
+
 }
-```
-
-## Classe ajoutée pour tester
-
-```java
-package fr.istic.vv;
-
-public class Point {
-    private double x, y;
-
-    public Point(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public double getX() {
-        return this.x;
-    }
-
-    public double dot(Point p) {
-        return x * p.x + y * p.y;
-    }
-
-    public Point sub(Point p) {
-        return new Point(x - p.x, y - p.y);
-    }
-}
-```
-
-## Resultat obtenu
-
-lancé sur l'ensemble des source
-
-```text
-fr.istic.vv.Point -- field : y
-
-Process finished with exit code 0
-```
