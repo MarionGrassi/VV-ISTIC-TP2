@@ -1,10 +1,3 @@
-# Code of your exercise
-
-Put here all the code created for this exercise
-
-## Classe qui calcul le TCC
-
-```java
 package fr.istic.vv;
 
 import com.github.javaparser.ast.CompilationUnit;
@@ -12,8 +5,6 @@ import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.*;
 import com.github.javaparser.ast.expr.FieldAccessExpr;
 import com.github.javaparser.ast.expr.NameExpr;
-import com.github.javaparser.ast.stmt.BlockStmt;
-import com.github.javaparser.ast.stmt.Statement;
 import com.github.javaparser.ast.visitor.VoidVisitorWithDefaults;
 import com.github.javaparser.utils.Pair;
 
@@ -115,17 +106,6 @@ public class TCCValuePrinter extends VoidVisitorWithDefaults<Void> {
     @Override
     public void defaultAction(Node n, Void arg) {
         super.defaultAction(n, arg);
-        n.getChildNodes().forEach((child) -> child.accept(this, arg));
+        n.getChildNodes().forEach(child -> child.accept(this, arg));
     }
 }
-```
-
-## Resultat obtenu
-
-```text
-fr.istic.vv.Main -- TCC Value = 0
-fr.istic.vv.Point -- TCC Value = 5 / 6 = 0.8333333333333334
-fr.istic.vv.TCCValuePrinter -- TCC Value = 11 / 36 = 0.3055555555555556
-fr.istic.vv.PrivateElementsGetterPrinter -- TCC Value = 0 / 6 = 0.0
-fr.istic.vv.PublicElementsPrinter -- TCC Value = 0 / 10 = 0.0
-```

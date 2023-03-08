@@ -20,7 +20,7 @@ public class Main {
         }
 
         SourceRoot root = new SourceRoot(file.toPath());
-        PrivateElementsGetterPrinter printer = new PrivateElementsGetterPrinter();
+        TCCValuePrinter printer = new TCCValuePrinter();
         root.parse("", (localPath, absolutePath, result) -> {
             result.ifSuccessful(unit -> unit.accept(printer, null));
             return SourceRoot.Callback.Result.DONT_SAVE;
